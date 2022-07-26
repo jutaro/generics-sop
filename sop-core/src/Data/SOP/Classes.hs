@@ -314,6 +314,7 @@ hcliftA2 :: (AllN (Prod h) c xs, HAp h, HAp (Prod h)) => proxy c -> (forall a. c
 --
 hcliftA3 :: (AllN (Prod h) c xs, HAp h, HAp (Prod h)) => proxy c -> (forall a. c a => f a -> f' a -> f'' a -> f''' a) -> Prod h f xs -> Prod h f' xs -> h f'' xs -> h f''' xs
 
+{-# INLINE hcliftA #-}
 hcliftA  p f xs       = hcpure p (fn   f) `hap` xs
 hcliftA2 p f xs ys    = hcpure p (fn_2 f) `hap` xs `hap` ys
 hcliftA3 p f xs ys zs = hcpure p (fn_3 f) `hap` xs `hap` ys `hap` zs
