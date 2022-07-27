@@ -323,6 +323,7 @@ hcliftA3 p f xs ys zs = hcpure p (fn_3 f) `hap` xs `hap` ys `hap` zs
 --
 -- @since 0.2
 --
+{-# INLINE hcmap #-}
 hcmap      :: (AllN (Prod h) c xs, HAp h)               => proxy c -> (forall a. c a => f a -> f' a)                                                   -> h f   xs -> h f'   xs
 
 -- | Another name for 'hcliftA2'.
